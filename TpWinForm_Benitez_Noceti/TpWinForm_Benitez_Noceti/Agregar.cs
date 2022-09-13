@@ -28,10 +28,26 @@ namespace TpWinForm_Benitez_Noceti
         private void Agregar_Load(object sender, EventArgs e)
         {
             ArticuloNegocio AN = new ArticuloNegocio();
+            CategoriaNegocio cn = new CategoriaNegocio();
+            MarcaNegocio mn = new MarcaNegocio();
             listaArt = AN.listar();
             dgvArticulo.DataSource = listaArt;
             dgvArticulo.Columns["imagen"].Visible = false;
             cargarImagen(listaArt[0].imagen);
+
+            try
+            {
+                cboxMarca.DataSource = mn.listar();
+                cboxCat.DataSource = cn.listar();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
@@ -52,6 +68,31 @@ namespace TpWinForm_Benitez_Noceti
                 pbArticulo.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
             }
             
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Articulo art = new Articulo();
+
+            ArticuloNegocio neg = new ArticuloNegocio();
+            try
+            {
+                art.codArt = txtCod.Text;
+                art.Nombre = txtNomb.Text;
+                art.precio = Convert.ToDouble(txtPrecio.Text);
+                art.descripcion = txtDescr.Text;
+                art.categoria = (Categoria)cboxCat.SelectedItem;
+                art.marca = (Marca)cboxMarca.SelectedItem;
+                neg.agregar(art);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
+            
+
         }
     }
 }

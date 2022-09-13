@@ -45,6 +45,27 @@ namespace negocio
             }
         }
 
+        public void execQuery()
+        {
+            cmd.Connection= cn;
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void setearParametros(string Nombre, object valor)
+        {
+            cmd.Parameters.AddWithValue(Nombre, valor);
+        }
+
         public void cerrarCN()
         {
             if (dr != null)

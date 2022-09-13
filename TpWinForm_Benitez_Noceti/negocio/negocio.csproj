@@ -44,13 +44,10 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="ArticuloNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
+    <Compile Include="MarcaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{69abb6a3-986d-4411-91af-39daf6e171c3}</Project>
-      <Name>DAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\dominio\dominio.csproj">
       <Project>{8a3bc155-7ee0-4d14-8bbd-a490865da317}</Project>
       <Name>dominio</Name>

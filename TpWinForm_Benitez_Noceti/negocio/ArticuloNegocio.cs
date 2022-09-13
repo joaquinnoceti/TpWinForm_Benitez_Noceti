@@ -54,5 +54,24 @@ namespace negocio
 
             
         }
+
+        public void agregar(Articulo art)
+        {
+            AccesoDatos dao = new AccesoDatos();
+            try
+            {
+                dao.query("Insert into articulos (codigo,nombre,descripcion,Precio,IdMarca,IdCategoria)VALUES("+art.codArt+",'"+art.Nombre+"','"+art.descripcion+"','"+art.precio+"',@idMarca,@idCategoria)");
+                dao.setearParametros("@idMarca", art.marca.id);
+                dao.setearParametros("@idCategoria", art.categoria.id);
+                dao.execQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
     }
 }
