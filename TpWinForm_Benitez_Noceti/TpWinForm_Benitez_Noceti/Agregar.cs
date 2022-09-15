@@ -14,61 +14,11 @@ namespace TpWinForm_Benitez_Noceti
 {
     public partial class Agregar : Form
     {
-        private List<Articulo> listaArt;
         public Agregar()
         {
             InitializeComponent();
         }
-
-        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Agregar_Load(object sender, EventArgs e)
-        {
-            ArticuloNegocio AN = new ArticuloNegocio();
-            CategoriaNegocio cn = new CategoriaNegocio();
-            MarcaNegocio mn = new MarcaNegocio();
-            listaArt = AN.listar();
-            dgvArticulo.DataSource = listaArt;
-            dgvArticulo.Columns["imagen"].Visible = false;
-            cargarImagen(listaArt[0].imagen);
-
-            try
-            {
-                cboxMarca.DataSource = mn.listar();
-                cboxCat.DataSource = cn.listar();
-
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-
-        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
-        {
-            Articulo art = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            cargarImagen(art.imagen);
-        }
-
-        private void cargarImagen(string url)
-        {
-            try
-            {
-                pbArticulo.Load(url);
-            }
-            catch (Exception)
-            {
-
-                pbArticulo.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
-            }
-            
-        }
+ 
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -93,6 +43,55 @@ namespace TpWinForm_Benitez_Noceti
             
             
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Agregar_Load(object sender, EventArgs e)
+        {
+            cargarImagen(txtImagen.Text);
+
+            CategoriaNegocio categoria = new CategoriaNegocio();
+            MarcaNegocio marca = new MarcaNegocio();
+
+
+            try
+            {
+                cboxMarca.DataSource = marca.listar();
+                cboxCat.DataSource = categoria.listar();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
+
+            }
+            catch (Exception)
+            {
+
+                pbxArticulo.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png");
+
+            }
+        }
+
+        private void txtImagen_TextChanged(object sender, EventArgs e)
+        {
+            cargarImagen(txtImagen.Text);
         }
     }
 }

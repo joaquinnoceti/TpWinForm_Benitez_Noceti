@@ -19,7 +19,7 @@ namespace negocio
 
             try
             {
-                cn.ConnectionString = "server=DESKTOP-ED31VDF; database=CATALOGO_DB; integrated security=true";
+                cn.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CATALOGO_DB;Data Source=JUANCRUZW\\SQLEXPRESS";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = "select codigo,nombre,a.descripcion,c.Descripcion Cat,m.Descripcion Mar,imagenurl,Precio from ARTICULOS a join CATEGORIAS c on (a.IdCategoria = c.Id) join MARCAS m on (a.IdMarca = m.id)";
                 cmd.Connection = cn;

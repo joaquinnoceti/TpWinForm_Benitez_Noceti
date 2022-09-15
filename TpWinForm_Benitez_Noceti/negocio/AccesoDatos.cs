@@ -20,7 +20,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            cn = new SqlConnection("server=DESKTOP-ED31VDF; database=CATALOGO_DB; integrated security=true");
+            cn = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CATALOGO_DB;Data Source=JUANCRUZW\\SQLEXPRESS");
             cmd = new SqlCommand();
         }
 

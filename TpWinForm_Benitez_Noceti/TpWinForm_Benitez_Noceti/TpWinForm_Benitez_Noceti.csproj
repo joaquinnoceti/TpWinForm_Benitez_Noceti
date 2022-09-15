@@ -58,6 +58,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaPrevia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaPrevia.Designer.cs">
+      <DependentUpon>VistaPrevia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Agregar.resx">
@@ -75,6 +81,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VistaPrevia.resx">
+      <DependentUpon>VistaPrevia.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\dominio.Articulo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
