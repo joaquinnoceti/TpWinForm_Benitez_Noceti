@@ -18,8 +18,13 @@ namespace negocio
             SqlDataReader dr;
 
             try
+<<<<<<< HEAD:TpWinForm_Benitez_Noceti/TpWinForm_Benitez_Noceti/negocio/ArticuloNegocio.cs
             {//"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CATALOGO_DB;Data Source=JUANCRUZW\\SQLEXPRESS"
                 cn.ConnectionString = "server=DESKTOP-ED31VDF; database=CATALOGO_DB; integrated security=true";
+=======
+            {
+                cn.ConnectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CATALOGO_DB;Data Source=JUANCRUZW\\SQLEXPRESS";
+>>>>>>> e363dd8a8cc3abe5024f6471f8f674c08e298dac:TpWinForm_Benitez_Noceti/negocio/ArticuloNegocio.cs
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = "select codigo,nombre,a.descripcion,c.Descripcion Cat,m.Descripcion Mar,imagenurl,Precio from ARTICULOS a join CATEGORIAS c on (a.IdCategoria = c.Id) join MARCAS m on (a.IdMarca = m.id) WHERE A.estado =1";
                 cmd.Connection = cn;

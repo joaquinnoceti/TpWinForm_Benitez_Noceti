@@ -19,8 +19,13 @@ namespace negocio
         }
 
         public AccesoDatos()
+<<<<<<< HEAD:TpWinForm_Benitez_Noceti/TpWinForm_Benitez_Noceti/negocio/AccesoDatos.cs
         {//""Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CATALOGO_DB;Data Source=JUANCRUZW\\SQLEXPRESS"
             cn = new SqlConnection("server=DESKTOP-ED31VDF; database=CATALOGO_DB; integrated security=true");
+=======
+        {
+            cn = new SqlConnection("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CATALOGO_DB;Data Source=JUANCRUZW\\SQLEXPRESS");
+>>>>>>> e363dd8a8cc3abe5024f6471f8f674c08e298dac:TpWinForm_Benitez_Noceti/negocio/AccesoDatos.cs
             cmd = new SqlCommand();
         }
 
